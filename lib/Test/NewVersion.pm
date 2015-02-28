@@ -5,7 +5,7 @@ package Test::NewVersion;
 # KEYWORDS: test distribution release author version unique new
 # vim: set ts=8 sw=4 tw=78 et :
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use parent 'Exporter';
 our @EXPORT = qw(all_new_version_ok new_version_ok);
