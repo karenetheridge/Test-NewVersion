@@ -1,0 +1,6 @@
+/.ackrc
+/.build/
+!/.gitignore
+/.latest
+/Test-NewVersion-*/
+/Test-NewVersion-*.tar.gz
