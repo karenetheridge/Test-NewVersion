@@ -90,6 +90,7 @@ sub new_version_ok
     my $module_metadata = Module::Metadata->new_from_file($filename);
     foreach my $pkg ($module_metadata->packages_inside)
     {
+        next if $pkg eq 'main';
         my ($bumped, $message) = _version_is_bumped($module_metadata, $pkg);
 
         local $Test::Builder::Level = $Test::Builder::Level + 1;
