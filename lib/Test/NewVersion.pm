@@ -20,6 +20,7 @@ use Module::Metadata;
 use List::Util 'first';
 use CPAN::Meta 2.120920;
 use Test::Builder 0.88;
+use namespace::clean;
 
 my $no_plan;
 
