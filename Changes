@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.002     2015-03-01 08:16:42Z
           - fix idiotic self-test that cannot possibly pass after the
             self-referenced version enters the index
 
