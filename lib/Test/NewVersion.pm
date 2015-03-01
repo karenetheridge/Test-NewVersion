@@ -161,12 +161,17 @@ In your distribution's F<xt/release/new_version.t>:
 
 =head1 DESCRIPTION
 
-This module provides interfaces that test your distribution is using a new
-C<$VERSION>. This is helpful when you are managing your distribution's version
-manually, where you might forget to increment the version before release.
-It checks the version against the PAUSE index (CPAN), and the test passes only
-if the local version is higher than the indexed version, or there is no indexed
-version.
+This module provides interfaces that check the PAUSE index for latest
+C<$VERSION> of each module, to confirm that the version number(s) has been/have
+been incremented.
+
+This is helpful when you are managing your distribution's version manually,
+where you might forget to increment the version before release.
+
+It is permitted for a module to have no version number at all, but if it is
+set, it must have been incremented from the previous value, as otherwise this case
+would be indistinguishable from developer error (forgetting to increment the
+version), which is what we're testing for.
 
 =head1 FUNCTIONS
 
