@@ -8,7 +8,7 @@ Test::NewVersion - provides a test interface for checking that you are using a n
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

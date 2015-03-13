@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.003     2015-03-13 02:55:21Z
           - fix some bad cpantesters reports by avoiding the use of the
             network in tests
 
