@@ -10,17 +10,16 @@ our $VERSION = '0.003';
 use parent 'Exporter';
 our @EXPORT = qw(all_new_version_ok new_version_ok);
 
-use File::Find;
+use File::Find ();
 use File::Spec;
 use Encode ();
 use HTTP::Tiny;
-use JSON::MaybeXS;
-use version;
+use JSON::MaybeXS ();
+use version ();
 use Module::Metadata;
-use List::Util 'first';
+use List::Util;
 use CPAN::Meta 2.120920;
 use Test::Builder 0.88;
-use namespace::clean;
 
 my $no_plan;
 
@@ -64,7 +63,7 @@ sub all_new_version_ok
     my @files;
     my @lib_dirs = grep { -d } qw(blib/lib lib);
 
-    find(
+    File::Find::find(
         {
             wanted => sub {
                 push @files, File::Spec->no_upwards($File::Find::name)
@@ -120,7 +119,7 @@ sub _version_is_bumped
         $data = Encode::decode($charset, $data, Encode::FB_CROAK);
     }
 
-    my $payload = decode_json($data);
+    my $payload = JSON::MaybeXS::decode_json($data);
     return (0, 'invalid payload returned') unless $payload;
     return (1, 'not indexed') if not defined $payload->[0]{mod_vers};
     return (1, 'VERSION is not set in index') if $payload->[0]{mod_vers} eq 'undef';
@@ -131,7 +130,7 @@ sub _version_is_bumped
     if (not defined $current_version)
     {
         $dist_provides ||= do {
-            my $metafile = first { -e $_ } qw(MYMETA.json MYMETA.yml META.json META.yml);
+            my $metafile = List::Util::first { -e $_ } qw(MYMETA.json MYMETA.yml META.json META.yml);
             my $dist_metadata = $metafile ? CPAN::Meta->load_file($metafile) : undef;
             $dist_metadata->provides if $dist_metadata;
         };
