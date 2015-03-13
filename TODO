@@ -1,2 +1,9 @@
 
 - refactor Dist::Zilla::Plugin::Test::NewVersion to use ourselves
+
+--------
+
+Not enough arguments for Test::Warnings::warnings at C:/strawberry160/perl/vendor/lib/File/pushd.pm line 3, near "warnings->import"
+
+http://www.cpantesters.org/cpan/report/ab848a9c-6c06-1014-8c70-19211b7a9ce0
+http://www.cpantesters.org/cpan/report/701ae444-6bf7-1014-8272-619591f6215e
