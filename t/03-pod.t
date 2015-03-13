@@ -6,6 +6,9 @@ use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
 use Test::NewVersion;
 use File::pushd 'pushd';
 
+use lib 't/lib';
+use NoNetworkHits;
+
 {
     my $wd = pushd('t/corpus/pod');
     all_new_version_ok();

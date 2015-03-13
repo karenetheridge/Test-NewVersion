@@ -8,6 +8,9 @@ use Test::Deep;
 use File::pushd 'pushd';
 use Test::NewVersion;
 
+use lib 't/lib';
+use NoNetworkHits;
+
 {
     my $wd = pushd('t/corpus/basic');
 
