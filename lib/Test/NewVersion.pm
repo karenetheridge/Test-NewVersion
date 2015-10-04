@@ -184,14 +184,6 @@ C<new_version_ok()> on each.
 Tests against the PAUSE index for all C<package> and C<$VERSION> statements
 found in the provided file.
 
-=head1 SUPPORT
-
-=for stopwords irc
-
-Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Test-NewVersion>
-(or L<bug-Test-NewVersion@rt.cpan.org|mailto:bug-Test-NewVersion@rt.cpan.org>).
-I am also usually active on irc, as 'ether' at C<irc.perl.org>.
-
 =head1 SEE ALSO
 
 =for :list
