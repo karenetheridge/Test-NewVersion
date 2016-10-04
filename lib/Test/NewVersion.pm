@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 package Test::NewVersion;
+# vim: set ts=8 sts=4 sw=4 tw=115 et :
 # ABSTRACT: provides a test interface for checking that you are using a new $VERSION
 # KEYWORDS: test distribution release author version unique new
-# vim: set ts=8 sts=4 sw=4 tw=115 et :
 
 our $VERSION = '0.004';
 
