@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use Test::Tester 0.108;
-use Test::More 0.88;
+use Test::More 0.96;
 use Test::Warnings qw(:all :no_end_test);
 use Test::Deep;
 use File::pushd 'pushd';
