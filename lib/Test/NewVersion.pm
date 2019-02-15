@@ -26,7 +26,7 @@ my $no_plan;
 sub import
 {
     # END block will check for this status
-    my @symbols = grep { $_ ne ':no_plan' } @_;
+    my @symbols = grep $_ ne ':no_plan', @_;
     $no_plan = (@symbols != @_);
 
     __PACKAGE__->export_to_level(1, @symbols);
@@ -61,7 +61,7 @@ sub all_new_version_ok
 {
     # find all files in blib or lib
     my @files;
-    my @lib_dirs = grep { -d } qw(blib/lib lib);
+    my @lib_dirs = grep -d, qw(blib/lib lib);
 
     File::Find::find(
         {
@@ -76,7 +76,7 @@ sub all_new_version_ok
     ) if @lib_dirs;
 
     # also add .pod, .pm files in the top level directory
-    push @files, grep { -f } glob('*.pod'), glob('*.pm');
+    push @files, grep -f, glob('"*.pod" "*.pm"');
 
     new_version_ok($_) foreach sort @files;
 }

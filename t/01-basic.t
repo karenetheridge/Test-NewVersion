@@ -30,7 +30,7 @@ use NoNetworkHits;
 
     # this somewhat redundant test allows an easier way of seeing which tests failed
     cmp_deeply(
-        [ map { $_->{name} } @results ],
+        [ map $_->{name}, @results ],
         [
             'Bar::Baz (lib/Bar/Baz.pm) VERSION is ok (not indexed)',
             re(qr{^ExtUtils::MakeMaker \(lib/ExtUtils\/MakeMaker\.pm\) VERSION is ok \(indexed at \d.\d+; local version is 100\.0\)$}),
@@ -41,7 +41,7 @@ use NoNetworkHits;
         ],
         'expected tests ran',
     )
-    or diag('ran tests: ', do { require Data::Dumper; Data::Dumper::Dumper([map { $_->{name} } @results ]) });
+    or diag('ran tests: ', do { require Data::Dumper; Data::Dumper::Dumper([map $_->{name}, @results ]) });
 
     # on older Test::More, depth appears to be 2, but it really ought to be 1
     # (it gets confused by the do $file) - see https://github.com/Test-More/test-more/issues/533
